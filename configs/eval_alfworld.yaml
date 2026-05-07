@@ -1,0 +1,38 @@
+# AlfWorld benchmark-driver config.
+# This file documents evaluation inputs; full compressed rollout requires
+# serving-engine KV-cache hooks.
+
+environment:
+  name: alfworld
+  split: eval_out_of_distribution
+  num_episodes: 134
+  max_steps: 200
+  feedback: text
+
+evaluation:
+  seeds: "1000-1004"
+  num_runs: 5
+  metric: success_rate
+
+compression:
+  budget_ratio: 0.2
+  method: taskkv
+
+taskkv:
+  scorer_checkpoint: checkpoints/scorer/best.pt
+  lambda_semantic: 1.0
+  lambda_noise: 1.2
+  ema_alpha: 0.1
+  entropy_threshold: 0.8
+  recheck_interval: 16
+
+serving:
+  engine: vllm
+  tensor_parallel: 4
+  max_model_len: 32768
+  gpu_memory_utilization: 0.92
+  dtype: float16
+
+logging:
+  output_dir: results/alfworld
+  save_trajectories: true

@@ -1,0 +1,50 @@
+# TaskKV scorer training config for the smaller backbone variant.
+
+model:
+  name: mistralai/Mistral-7B-Instruct-v0.3
+  hidden_dim: 4096
+  num_layers: 32
+  num_heads: 32
+  num_kv_heads: 8
+  head_dim: 128
+
+scorer:
+  hidden_dim: 256
+  num_layers: 3
+  dropout: 0.1
+  input: "[h_i; q_t; h_i * q_t; Psi(s_i)]"
+
+lambda_semantic: 1.0
+lambda_noise: 1.2
+ema_alpha: 0.1
+
+budget_ratio: 0.2
+max_stride: 64
+recheck_interval: 16
+entropy_threshold: 0.8
+sink_tokens: 4
+
+training:
+  optimizer: adamw
+  learning_rate: 1.0e-4
+  weight_decay: 0.01
+  num_epochs: 5
+  batch_size: 32
+  loss: ranknet
+  scheduler: cosine
+  gradient_clip: 1.0
+  fp16: true
+
+data:
+  trajectory_dir: data/trajectories/os_alf_train_small
+  label_type: signed_first_order_action_utility
+  num_trajectories: 500
+  train_split: "250 AgentBench-OS + 250 AlfWorld"
+  train_seeds: "0-499"
+  eval_seeds: "1000-1499"
+  max_steps_per_trajectory: 200
+  pair_sampling: utility_gap
+
+device: cuda
+seed: 42
+num_workers: 4

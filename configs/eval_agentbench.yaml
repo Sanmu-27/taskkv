@@ -1,0 +1,53 @@
+# AgentBench benchmark-driver config.
+# This file documents evaluation inputs; full compressed rollout requires
+# serving-engine KV-cache hooks.
+
+environments:
+  - name: os
+    module: agentbench.environments.os
+    max_steps: 200
+    timeout_seconds: 120
+  - name: db
+    module: agentbench.environments.db
+    max_steps: 150
+    timeout_seconds: 90
+  - name: kg
+    module: agentbench.environments.kg
+    max_steps: 150
+    timeout_seconds: 90
+
+evaluation:
+  seeds: "1000-1004"
+  num_runs: 5
+  metric: success_rate
+  max_retries: 3
+
+compression:
+  budget_ratio: 0.2
+  method: taskkv
+
+taskkv:
+  scorer_checkpoint: checkpoints/scorer/best.pt
+  lambda_semantic: 1.0
+  lambda_noise: 1.2
+  ema_alpha: 0.1
+  entropy_threshold: 0.8
+  recheck_interval: 16
+
+h2o:
+  protect_ratio: 0.1
+
+streamingllm:
+  sink_tokens: 4
+
+serving:
+  engine: vllm
+  tensor_parallel: 4
+  max_model_len: 131072
+  gpu_memory_utilization: 0.92
+  dtype: float16
+
+logging:
+  output_dir: results/agentbench
+  save_trajectories: true
+  verbose: true

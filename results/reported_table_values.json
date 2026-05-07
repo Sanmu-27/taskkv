@@ -1,0 +1,123 @@
+{
+  "scope": "Reported values copied from the paper for auditability; not raw experiment logs.",
+  "main_results": {
+    "budget": "20% retained-token budget",
+    "values_are": "mean +/- std over five seeds",
+    "Full Cache": {
+      "AgentBench-OS": {"sr": 42.8, "std": 1.9},
+      "AgentBench-DB": {"sr": 54.6, "std": 1.8},
+      "AgentBench-KG": {"sr": 51.3, "std": 2.2},
+      "AlfWorld": {"sr": 73.1, "std": 1.6}
+    },
+    "Window": {
+      "AgentBench-OS": {"sr": 13.8, "std": 3.6},
+      "AgentBench-DB": {"sr": 21.7, "std": 2.8},
+      "AgentBench-KG": {"sr": 24.1, "std": 3.4},
+      "AlfWorld": {"sr": 31.2, "std": 2.7}
+    },
+    "StreamingLLM": {
+      "AgentBench-OS": {"sr": 17.2, "std": 3.1},
+      "AgentBench-DB": {"sr": 26.3, "std": 2.5},
+      "AgentBench-KG": {"sr": 23.8, "std": 3.3},
+      "AlfWorld": {"sr": 38.5, "std": 2.1}
+    },
+    "H2O": {
+      "AgentBench-OS": {"sr": 28.4, "std": 2.7},
+      "AgentBench-DB": {"sr": 38.7, "std": 2.0},
+      "AgentBench-KG": {"sr": 33.9, "std": 2.6},
+      "AlfWorld": {"sr": 52.1, "std": 1.9}
+    },
+    "SnapKV": {
+      "AgentBench-OS": {"sr": 33.1, "std": 2.3},
+      "AgentBench-DB": {"sr": 40.9, "std": 2.4},
+      "AgentBench-KG": {"sr": 39.4, "std": 1.9},
+      "AlfWorld": {"sr": 56.8, "std": 1.7}
+    },
+    "SqueezeAttn+H2O": {
+      "AgentBench-OS": {"sr": 26.5, "std": 2.8},
+      "AgentBench-DB": {"sr": 36.2, "std": 2.3},
+      "AgentBench-KG": {"sr": 31.7, "std": 2.5},
+      "AlfWorld": {"sr": 48.9, "std": 2.1}
+    },
+    "Strong Heuristic": {
+      "AgentBench-OS": {"sr": 35.2, "std": 1.7},
+      "AgentBench-DB": {"sr": 41.3, "std": 2.1},
+      "AgentBench-KG": {"sr": 38.6, "std": 1.8},
+      "AlfWorld": {"sr": 57.4, "std": 1.5}
+    },
+    "AdaKV": {
+      "AgentBench-OS": {"sr": 30.6, "std": 2.5},
+      "AgentBench-DB": {"sr": 41.7, "std": 1.8},
+      "AgentBench-KG": {"sr": 36.8, "std": 2.4},
+      "AlfWorld": {"sr": 53.3, "std": 1.9}
+    },
+    "Offline SMI Diagnostic": {
+      "AgentBench-OS": {"sr": 39.8, "std": 1.7},
+      "AgentBench-DB": {"sr": 50.1, "std": 1.5},
+      "AgentBench-KG": {"sr": 47.6, "std": 1.9},
+      "AlfWorld": {"sr": 67.4, "std": 1.4}
+    },
+    "TaskKV-Proxy": {
+      "AgentBench-OS": {"sr": 38.1, "std": 2.1},
+      "AgentBench-DB": {"sr": 47.3, "std": 1.9, "note": "diagnostic transfer"},
+      "AgentBench-KG": {"sr": 45.2, "std": 2.3, "note": "diagnostic transfer"},
+      "AlfWorld": {"sr": 64.7, "std": 1.6}
+    }
+  },
+  "prototype_throughput": {
+    "scope": "Non-portable prototype diagnostic with local PagedAttention-style KV-cache hooks. Not a portable serving benchmark.",
+    "TaskKV": {"tok_per_s": 1420, "p95_latency_ms": 21.5, "attn_ms": 17.4, "score_ms": 2.8, "evict_ms": 0.6}
+  },
+  "diagnostic_transfer": {
+    "JSON-Mode": {"H2O": 22.5, "Strong Heuristic": 28.8, "TaskKV": 34.2, "gain_over_H2O_points": 11.7},
+    "Reflexion": {"H2O": 28.0, "Strong Heuristic": 33.5, "TaskKV": 38.5, "gain_over_H2O_points": 10.5},
+    "AgentBench-DB": {"H2O": 38.7, "Strong Heuristic": 41.3, "TaskKV": 47.3, "gain_over_H2O_points": 8.6},
+    "KnowledgeGraph": {"H2O": 33.9, "Strong Heuristic": 38.6, "TaskKV": 45.2, "gain_over_H2O_points": 11.3},
+    "Mistral-7B-v0.3": {"H2O": 18.2, "Strong Heuristic": 23.5, "TaskKV": 28.5, "gain_over_H2O_points": 10.3, "note": "scorer retrained on target-backbone features"},
+    "Llama-3.1-8B": {"H2O": 16.5, "Strong Heuristic": 22.0, "TaskKV": 27.2, "gain_over_H2O_points": 10.7, "note": "scorer retrained on target-backbone features"},
+    "Qwen-2.5-7B": {"H2O": 19.5, "Strong Heuristic": 23.8, "TaskKV": 27.2, "gain_over_H2O_points": 7.7, "note": "scorer retrained on target-backbone features"}
+  },
+  "ablation_alfworld": {
+    "scope": "AlfWorld ablation table; mean +/- sample std over five seeds.",
+    "Full TaskKV": {"sr": 64.7, "std": 1.6},
+    "w/o Denoising (lambda2=0)": {"sr": 57.1, "std": 2.3},
+    "w/o Pivot Feature (Psi=0)": {"sr": 59.8, "std": 1.8},
+    "w/o Intent EMA (alpha=1.0)": {"sr": 61.9, "std": 1.7},
+    "w/o Semantic (lambda1=0)": {"sr": 53.8, "std": 2.6},
+    "Unsigned Saliency Labels (|grad| only)": {"sr": 58.6, "std": 1.5},
+    "Fixed Stride (S=64)": {"sr": 63.1, "std": 1.5},
+    "Fixed Stride (S=32)": {"sr": 62.4, "std": 1.6},
+    "Budget=10%": {"sr": 56.4, "std": 2.2},
+    "Budget=20%": {"sr": 64.7, "std": 1.6},
+    "Budget=30%": {"sr": 67.9, "std": 1.3},
+    "Budget=50%": {"sr": 70.3, "std": 1.2}
+  },
+  "ablation_agentbench_os": {
+    "scope": "AgentBench-OS cross-domain ablation (appendix); mean +/- sample std over five seeds.",
+    "Full TaskKV": {"sr": 38.1, "std": 2.1},
+    "w/o Denoising (lambda2=0)": {"sr": 32.8, "std": 2.4},
+    "w/o Pivot Feature (Psi=0)": {"sr": 35.5, "std": 2.1},
+    "w/o Intent EMA (alpha=1.0)": {"sr": 36.3, "std": 1.9},
+    "w/o Semantic (lambda1=0)": {"sr": 29.8, "std": 2.8},
+    "Unsigned Saliency Labels (|grad| only)": {"sr": 32.9, "std": 2.3}
+  },
+  "tau_sensitivity": {
+    "scope": "Entropy threshold sweep (appendix).",
+    "AlfWorld": {
+      "tau=0.5": {"sr": 65.0, "std": 1.8},
+      "tau=0.6": {"sr": 64.9, "std": 1.7},
+      "tau=0.7": {"sr": 64.8, "std": 1.6},
+      "tau=0.8 (default)": {"sr": 64.7, "std": 1.6},
+      "tau=0.9": {"sr": 63.5, "std": 1.9},
+      "tau=1.0 (always fallback)": {"sr": 56.2, "std": 2.1}
+    },
+    "LB-Summ": {
+      "tau=0.5": {"rouge_l": 20.2},
+      "tau=0.6": {"rouge_l": 22.1},
+      "tau=0.7": {"rouge_l": 24.5},
+      "tau=0.8 (default)": {"rouge_l": 25.8},
+      "tau=0.9": {"rouge_l": 26.1},
+      "tau=1.0 (always fallback)": {"rouge_l": 26.3}
+    }
+  }
+}

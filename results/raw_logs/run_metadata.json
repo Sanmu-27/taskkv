@@ -1,0 +1,91 @@
+{
+  "experiment": "Table 1 — Main Results (20% KV Cache Budget)",
+  "paper_section": "Section 4.2",
+  "run_config": {
+    "backbone": "meta-llama/Llama-3.1-70B-Instruct",
+    "precision": "BF16",
+    "context_window": 131072,
+    "serving": "vLLM 0.4.0, tensor_parallel=4",
+    "gpu": "4x A100-80GB",
+    "decoding": "greedy (temperature=0.0)",
+    "budget_ratio": 0.20,
+    "layer_pruning": "synchronized (all layers share same mask)"
+  },
+  "evaluation_protocol": {
+    "seeds": [1000, 1001, 1002, 1003, 1004],
+    "num_seeds": 5,
+    "reporting": "mean ± sample std over 5 seeds",
+    "environments": {
+      "AgentBench-OS": {
+        "num_episodes_per_seed": 134,
+        "max_steps": 200,
+        "timeout_seconds": 120,
+        "domain_status": "training-matched (scorer trained on OS traces)",
+        "task_split": "file system states N-Z (eval), A-M reserved for training"
+      },
+      "AgentBench-DB": {
+        "num_episodes_per_seed": 200,
+        "max_steps": 150,
+        "timeout_seconds": 90,
+        "domain_status": "held-out diagnostic transfer",
+        "task_split": "scorer never fine-tuned on DB traces"
+      },
+      "AgentBench-KG": {
+        "num_episodes_per_seed": 200,
+        "max_steps": 150,
+        "timeout_seconds": 90,
+        "domain_status": "held-out diagnostic transfer",
+        "task_split": "scorer never fine-tuned on KG traces"
+      },
+      "AlfWorld": {
+        "num_episodes_per_seed": 134,
+        "max_steps": 200,
+        "timeout_seconds": 120,
+        "domain_status": "training-matched (scorer trained on AlfWorld traces)",
+        "task_split": "environment seed range 1000-1499 reserved for eval; reported results use seeds 1000-1004"
+      }
+    }
+  },
+  "scorer_checkpoint": {
+    "path": "checkpoints/scorer/best.pt",
+    "training_data": "500 trajectories (250 AgentBench-OS + 250 AlfWorld)",
+    "training_seeds": "0-499",
+    "training_cost": "~4 GPU-hours on 1x A100-80GB (scorer training only; full pipeline including trajectory collection is ~45-65 GPU-hours)",
+    "label_type": "signed first-order action-utility (key-state pooling)",
+    "loss": "RankNet pairwise",
+    "epochs": 5,
+    "optimizer": "AdamW (lr=1e-4)",
+    "architecture": "Residual MLP [(3*8192+1), 256, 64, 1] for Llama-3.1-70B; [(3*4096+1), 256, 64, 1] for 7B models"
+  },
+  "taskkv_config": {
+    "lambda_semantic": 1.0,
+    "lambda_noise": 1.2,
+    "ema_alpha": 0.1,
+    "entropy_threshold": 0.8,
+    "max_stride": 64,
+    "recheck_interval": 16,
+    "sink_tokens": 4
+  },
+  "baseline_budget_allocation": {
+    "note": "All methods share the same 20% retained-token budget. Percentages below are fractions of that budget, not of full context.",
+    "Window": {"prompt": "0%", "recent": "100%", "policy": "none"},
+    "StreamingLLM": {"prompt": "10% (sink tokens)", "recent": "90%", "policy": "none"},
+    "H2O": {"prompt": "10%", "recent": "0%", "policy": "90% heavy-hitter (prompt-protected)"},
+    "SnapKV": {"prompt": "10%", "recent": "20%", "policy": "70% cluster-attention"},
+    "SqueezeAttn+H2O": {"prompt": "10%", "recent": "0%", "policy": "90% layer-adaptive heavy-hitter"},
+    "Strong_Heuristic": {"prompt": "10%", "recent": "30%", "policy": "60% semantic top-k"},
+    "AdaKV": {"prompt": "10%", "recent": "20%", "policy": "70% adaptive pooling"},
+    "TaskKV-Proxy": {"prompt": "optional anchors (counted in budget)", "recent": "adaptive", "policy": "scorer-ranked remainder"}
+  },
+  "data_hygiene": {
+    "seed_isolation": "training seeds 0-499, evaluation seed range 1000-1499 reserved (reported results use seeds 1000-1004)",
+    "task_disjointness": "OS: file states A-M (train), N-Z (eval); tool sets shared, goals disjoint",
+    "domain_holdout": "scorer trained on OS + AlfWorld only; DB and KG are diagnostic transfer"
+  },
+  "files": {
+    "per_seed_results": "main_results_per_seed.csv",
+    "ablation_results": "ablation_per_seed.csv",
+    "columns": "table, method, environment, budget, seed, success_rate, notes",
+    "note": "success_rate is the authoritative per-seed metric; episode counts are in evaluation_protocol above"
+  }
+}

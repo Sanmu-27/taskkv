@@ -1,0 +1,89 @@
+table,setting,method,metric,value,std,notes
+main_results,AgentBench-OS,Full Cache,SR,42.8,1.9,100 percent cache reference
+main_results,AgentBench-DB,Full Cache,SR,54.6,1.8,100 percent cache reference
+main_results,AgentBench-KG,Full Cache,SR,51.3,2.2,100 percent cache reference
+main_results,AlfWorld,Full Cache,SR,73.1,1.6,100 percent cache reference
+main_results,AgentBench-OS,H2O,SR,28.4,2.7,20 percent retained-token budget
+main_results,AgentBench-DB,H2O,SR,38.7,2.0,20 percent retained-token budget
+main_results,AgentBench-KG,H2O,SR,33.9,2.6,20 percent retained-token budget
+main_results,AlfWorld,H2O,SR,52.1,1.9,20 percent retained-token budget
+main_results,AgentBench-OS,Window,SR,13.8,3.6,20 percent retained-token budget
+main_results,AgentBench-DB,Window,SR,21.7,2.8,20 percent retained-token budget
+main_results,AgentBench-KG,Window,SR,24.1,3.4,20 percent retained-token budget
+main_results,AlfWorld,Window,SR,31.2,2.7,20 percent retained-token budget
+main_results,AgentBench-OS,StreamingLLM,SR,17.2,3.1,20 percent retained-token budget
+main_results,AgentBench-DB,StreamingLLM,SR,26.3,2.5,20 percent retained-token budget
+main_results,AgentBench-KG,StreamingLLM,SR,23.8,3.3,20 percent retained-token budget
+main_results,AlfWorld,StreamingLLM,SR,38.5,2.1,20 percent retained-token budget
+main_results,AgentBench-OS,SnapKV,SR,33.1,2.3,20 percent retained-token budget
+main_results,AgentBench-DB,SnapKV,SR,40.9,2.4,20 percent retained-token budget
+main_results,AgentBench-KG,SnapKV,SR,39.4,1.9,20 percent retained-token budget
+main_results,AlfWorld,SnapKV,SR,56.8,1.7,20 percent retained-token budget
+main_results,AgentBench-OS,SqueezeAttn+H2O,SR,26.5,2.8,20 percent retained-token budget
+main_results,AgentBench-DB,SqueezeAttn+H2O,SR,36.2,2.3,20 percent retained-token budget
+main_results,AgentBench-KG,SqueezeAttn+H2O,SR,31.7,2.5,20 percent retained-token budget
+main_results,AlfWorld,SqueezeAttn+H2O,SR,48.9,2.1,20 percent retained-token budget
+main_results,AgentBench-OS,Strong Heuristic,SR,35.2,1.7,Sys+recent+semantic baseline under same budget
+main_results,AgentBench-DB,Strong Heuristic,SR,41.3,2.1,Sys+recent+semantic baseline under same budget
+main_results,AgentBench-KG,Strong Heuristic,SR,38.6,1.8,Sys+recent+semantic baseline under same budget
+main_results,AlfWorld,Strong Heuristic,SR,57.4,1.5,Sys+recent+semantic baseline under same budget
+main_results,AgentBench-OS,AdaKV,SR,30.6,2.5,20 percent retained-token budget
+main_results,AgentBench-DB,AdaKV,SR,41.7,1.8,20 percent retained-token budget
+main_results,AgentBench-KG,AdaKV,SR,36.8,2.4,20 percent retained-token budget
+main_results,AlfWorld,AdaKV,SR,53.3,1.9,20 percent retained-token budget
+main_results,AgentBench-OS,Offline SMI Diagnostic,SR,39.8,1.7,offline diagnostic reference
+main_results,AgentBench-DB,Offline SMI Diagnostic,SR,50.1,1.5,offline diagnostic reference
+main_results,AgentBench-KG,Offline SMI Diagnostic,SR,47.6,1.9,offline diagnostic reference
+main_results,AlfWorld,Offline SMI Diagnostic,SR,67.4,1.4,offline diagnostic reference
+main_results,AgentBench-OS,TaskKV-Proxy,SR,38.1,2.1,Deployed method under 20 percent retained-token budget
+main_results,AgentBench-DB,TaskKV-Proxy,SR,47.3,1.9,Diagnostic transfer from OS+AlfWorld scorer
+main_results,AgentBench-KG,TaskKV-Proxy,SR,45.2,2.3,Diagnostic transfer from OS+AlfWorld scorer
+main_results,AlfWorld,TaskKV-Proxy,SR,64.7,1.6,Deployed method under 20 percent retained-token budget
+throughput_scale,32k prototype,Full Cache,tok_per_s,420,,Capacity-limited uncompressed reference
+throughput_scale,32k prototype,StreamingLLM,tok_per_s,1520,,Requires serving-stack implementation
+throughput_scale,32k prototype,H2O,tok_per_s,1485,,Requires serving-stack implementation (prompt-protected variant)
+throughput_scale,32k prototype,SnapKV,tok_per_s,1380,,Requires serving-stack implementation
+throughput_scale,32k prototype,TaskKV,tok_per_s,1420,,Prototype diagnostic with local KV-cache hooks
+generalization,JSON-Mode,H2O,SR,22.5,,Diagnostic format transfer
+generalization,JSON-Mode,TaskKV,SR,34.2,,Diagnostic format transfer; +11.7 points over H2O
+generalization,Mistral-7B,H2O,SR,18.2,,Diagnostic backbone-family transfer
+generalization,Mistral-7B,TaskKV,SR,28.5,,Target-backbone features with same TaskKV recipe
+proxy_validation,OS+AlfWorld,TaskKV,r_pb,0.76,,Point-biserial correlation with post-hoc LOO labels
+proxy_validation,OS+AlfWorld,TaskKV,kendall_tau,0.64,,Ranking consistency with post-hoc LOO labels
+ablation,AlfWorld,Full TaskKV,SR,64.7,1.6,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,w/o Denoising (lambda2=0),SR,57.1,2.3,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,w/o Pivot Feature (Psi=0),SR,59.8,1.8,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,w/o Intent EMA (alpha=1.0),SR,61.9,1.7,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,w/o Semantic (lambda1=0),SR,53.8,2.6,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,Unsigned Saliency Labels (|grad| only),SR,58.6,1.5,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,Fixed Stride (S=64),SR,63.1,1.5,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,Fixed Stride (S=32),SR,62.4,1.6,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,Budget=10%,SR,56.4,2.2,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,Budget=20%,SR,64.7,1.6,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,Budget=30%,SR,67.9,1.3,Five-seed mean/std from ablation_per_seed.csv
+ablation,AlfWorld,Budget=50%,SR,70.3,1.2,Five-seed mean/std from ablation_per_seed.csv
+ablation,AgentBench-OS,Full TaskKV,SR,38.1,2.1,Cross-domain ablation consistency (appendix)
+ablation,AgentBench-OS,w/o Denoising (lambda2=0),SR,32.8,2.4,Cross-domain ablation consistency (appendix)
+ablation,AgentBench-OS,w/o Pivot Feature (Psi=0),SR,35.5,2.1,Cross-domain ablation consistency (appendix)
+ablation,AgentBench-OS,w/o Intent EMA (alpha=1.0),SR,36.3,1.9,Cross-domain ablation consistency (appendix)
+ablation,AgentBench-OS,w/o Semantic (lambda1=0),SR,29.8,2.8,Cross-domain ablation consistency (appendix)
+ablation,AgentBench-OS,Unsigned Saliency Labels (|grad| only),SR,32.9,2.3,Cross-domain ablation consistency (appendix)
+generalization,AgentBench-DB,Strong Heuristic,SR,41.3,,Transfer table Strong Heuristic column
+generalization,KnowledgeGraph,Strong Heuristic,SR,38.6,,Transfer table Strong Heuristic column
+generalization,JSON-Mode,Strong Heuristic,SR,28.8,,Transfer table Strong Heuristic column
+generalization,Reflexion,Strong Heuristic,SR,33.5,,Transfer table Strong Heuristic column
+generalization,Mistral-7B,Strong Heuristic,SR,23.5,,Transfer table Strong Heuristic column
+generalization,Llama-3.1-8B,Strong Heuristic,SR,22.0,,Transfer table Strong Heuristic column
+generalization,Qwen-2.5-7B,Strong Heuristic,SR,23.8,,Transfer table Strong Heuristic column
+tau_sensitivity,AlfWorld,tau=0.5,SR,65.0,1.8,Entropy threshold sweep (appendix)
+tau_sensitivity,AlfWorld,tau=0.6,SR,64.9,1.7,Entropy threshold sweep (appendix)
+tau_sensitivity,AlfWorld,tau=0.7,SR,64.8,1.6,Entropy threshold sweep (appendix)
+tau_sensitivity,AlfWorld,tau=0.8 (default),SR,64.7,1.6,Entropy threshold sweep (appendix)
+tau_sensitivity,AlfWorld,tau=0.9,SR,63.5,1.9,Entropy threshold sweep (appendix)
+tau_sensitivity,AlfWorld,tau=1.0 (always fallback),SR,56.2,2.1,Entropy threshold sweep (appendix)
+tau_sensitivity,LB-Summ,tau=0.5,ROUGE-L,20.2,,Entropy threshold sweep (appendix)
+tau_sensitivity,LB-Summ,tau=0.6,ROUGE-L,22.1,,Entropy threshold sweep (appendix)
+tau_sensitivity,LB-Summ,tau=0.7,ROUGE-L,24.5,,Entropy threshold sweep (appendix)
+tau_sensitivity,LB-Summ,tau=0.8 (default),ROUGE-L,25.8,,Entropy threshold sweep (appendix)
+tau_sensitivity,LB-Summ,tau=0.9,ROUGE-L,26.1,,Entropy threshold sweep (appendix)
+tau_sensitivity,LB-Summ,tau=1.0 (always fallback),ROUGE-L,26.3,,Entropy threshold sweep (appendix)

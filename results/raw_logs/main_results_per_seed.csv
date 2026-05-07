@@ -1,0 +1,201 @@
+table,method,environment,budget,seed,success_rate,notes
+main,Full Cache,AgentBench-OS,1.00,1000,42.11,upper reference
+main,Full Cache,AgentBench-OS,1.00,1001,41.97,upper reference
+main,Full Cache,AgentBench-OS,1.00,1002,42.27,upper reference
+main,Full Cache,AgentBench-OS,1.00,1003,46.16,upper reference
+main,Full Cache,AgentBench-OS,1.00,1004,41.49,upper reference
+main,Full Cache,AgentBench-DB,1.00,1000,54.39,upper reference
+main,Full Cache,AgentBench-DB,1.00,1001,52.16,upper reference
+main,Full Cache,AgentBench-DB,1.00,1002,55.14,upper reference
+main,Full Cache,AgentBench-DB,1.00,1003,54.16,upper reference
+main,Full Cache,AgentBench-DB,1.00,1004,57.15,upper reference
+main,Full Cache,AgentBench-KG,1.00,1000,50.76,upper reference
+main,Full Cache,AgentBench-KG,1.00,1001,51.59,upper reference
+main,Full Cache,AgentBench-KG,1.00,1002,51.88,upper reference
+main,Full Cache,AgentBench-KG,1.00,1003,54.19,upper reference
+main,Full Cache,AgentBench-KG,1.00,1004,48.08,upper reference
+main,Full Cache,AlfWorld,1.00,1000,74.32,upper reference
+main,Full Cache,AlfWorld,1.00,1001,73.3,upper reference
+main,Full Cache,AlfWorld,1.00,1002,71.73,upper reference
+main,Full Cache,AlfWorld,1.00,1003,71.22,upper reference
+main,Full Cache,AlfWorld,1.00,1004,74.93,upper reference
+main,Window,AgentBench-OS,0.20,1000,14.68,
+main,Window,AgentBench-OS,0.20,1001,18.51,
+main,Window,AgentBench-OS,0.20,1002,13.95,
+main,Window,AgentBench-OS,0.20,1003,13.42,
+main,Window,AgentBench-OS,0.20,1004,8.44,
+main,Window,AgentBench-DB,0.20,1000,23.34,
+main,Window,AgentBench-DB,0.20,1001,17.21,
+main,Window,AgentBench-DB,0.20,1002,20.74,
+main,Window,AgentBench-DB,0.20,1003,23.21,
+main,Window,AgentBench-DB,0.20,1004,24.0,
+main,Window,AgentBench-KG,0.20,1000,27.78,
+main,Window,AgentBench-KG,0.20,1001,23.09,
+main,Window,AgentBench-KG,0.20,1002,25.69,
+main,Window,AgentBench-KG,0.20,1003,25.15,
+main,Window,AgentBench-KG,0.20,1004,18.79,
+main,Window,AlfWorld,0.20,1000,32.91,
+main,Window,AlfWorld,0.20,1001,28.77,
+main,Window,AlfWorld,0.20,1002,32.44,
+main,Window,AlfWorld,0.20,1003,27.89,
+main,Window,AlfWorld,0.20,1004,33.99,
+main,StreamingLLM,AgentBench-OS,0.20,1000,13.52,
+main,StreamingLLM,AgentBench-OS,0.20,1001,16.35,
+main,StreamingLLM,AgentBench-OS,0.20,1002,15.91,
+main,StreamingLLM,AgentBench-OS,0.20,1003,18.43,
+main,StreamingLLM,AgentBench-OS,0.20,1004,21.79,
+main,StreamingLLM,AgentBench-DB,0.20,1000,27.93,
+main,StreamingLLM,AgentBench-DB,0.20,1001,23.31,
+main,StreamingLLM,AgentBench-DB,0.20,1002,28.38,
+main,StreamingLLM,AgentBench-DB,0.20,1003,23.84,
+main,StreamingLLM,AgentBench-DB,0.20,1004,28.04,
+main,StreamingLLM,AgentBench-KG,0.20,1000,23.25,
+main,StreamingLLM,AgentBench-KG,0.20,1001,21.94,
+main,StreamingLLM,AgentBench-KG,0.20,1002,24.53,
+main,StreamingLLM,AgentBench-KG,0.20,1003,28.99,
+main,StreamingLLM,AgentBench-KG,0.20,1004,20.29,
+main,StreamingLLM,AlfWorld,0.20,1000,39.63,
+main,StreamingLLM,AlfWorld,0.20,1001,39.12,
+main,StreamingLLM,AlfWorld,0.20,1002,39.65,
+main,StreamingLLM,AlfWorld,0.20,1003,39.34,
+main,StreamingLLM,AlfWorld,0.20,1004,34.76,
+main,H2O,AgentBench-OS,0.20,1000,26.48,
+main,H2O,AgentBench-OS,0.20,1001,26.2,
+main,H2O,AgentBench-OS,0.20,1002,26.96,
+main,H2O,AgentBench-OS,0.20,1003,29.93,
+main,H2O,AgentBench-OS,0.20,1004,32.43,
+main,H2O,AgentBench-DB,0.20,1000,38.33,
+main,H2O,AgentBench-DB,0.20,1001,42.13,
+main,H2O,AgentBench-DB,0.20,1002,37.5,
+main,H2O,AgentBench-DB,0.20,1003,37.09,
+main,H2O,AgentBench-DB,0.20,1004,38.45,
+main,H2O,AgentBench-KG,0.20,1000,34.9,
+main,H2O,AgentBench-KG,0.20,1001,35.75,
+main,H2O,AgentBench-KG,0.20,1002,34.56,
+main,H2O,AgentBench-KG,0.20,1003,34.99,
+main,H2O,AgentBench-KG,0.20,1004,29.3,
+main,H2O,AlfWorld,0.20,1000,54.59,
+main,H2O,AlfWorld,0.20,1001,51.94,
+main,H2O,AlfWorld,0.20,1002,49.62,
+main,H2O,AlfWorld,0.20,1003,51.17,
+main,H2O,AlfWorld,0.20,1004,53.18,
+main,SnapKV,AgentBench-OS,0.20,1000,35.59,
+main,SnapKV,AgentBench-OS,0.20,1001,29.33,
+main,SnapKV,AgentBench-OS,0.20,1002,33.19,
+main,SnapKV,AgentBench-OS,0.20,1003,33.76,
+main,SnapKV,AgentBench-OS,0.20,1004,33.63,
+main,SnapKV,AgentBench-DB,0.20,1000,40.54,
+main,SnapKV,AgentBench-DB,0.20,1001,41.73,
+main,SnapKV,AgentBench-DB,0.20,1002,41.57,
+main,SnapKV,AgentBench-DB,0.20,1003,43.58,
+main,SnapKV,AgentBench-DB,0.20,1004,37.08,
+main,SnapKV,AgentBench-KG,0.20,1000,40.63,
+main,SnapKV,AgentBench-KG,0.20,1001,38.19,
+main,SnapKV,AgentBench-KG,0.20,1002,38.29,
+main,SnapKV,AgentBench-KG,0.20,1003,37.75,
+main,SnapKV,AgentBench-KG,0.20,1004,42.14,
+main,SnapKV,AlfWorld,0.20,1000,58.69,
+main,SnapKV,AlfWorld,0.20,1001,55.67,
+main,SnapKV,AlfWorld,0.20,1002,56.66,
+main,SnapKV,AlfWorld,0.20,1003,58.29,
+main,SnapKV,AlfWorld,0.20,1004,54.69,
+main,SqueezeAttn+H2O,AgentBench-OS,0.20,1000,25.61,
+main,SqueezeAttn+H2O,AgentBench-OS,0.20,1001,26.14,
+main,SqueezeAttn+H2O,AgentBench-OS,0.20,1002,24.23,
+main,SqueezeAttn+H2O,AgentBench-OS,0.20,1003,25.17,
+main,SqueezeAttn+H2O,AgentBench-OS,0.20,1004,31.35,
+main,SqueezeAttn+H2O,AgentBench-DB,0.20,1000,34.68,
+main,SqueezeAttn+H2O,AgentBench-DB,0.20,1001,37.31,
+main,SqueezeAttn+H2O,AgentBench-DB,0.20,1002,39.39,
+main,SqueezeAttn+H2O,AgentBench-DB,0.20,1003,36.15,
+main,SqueezeAttn+H2O,AgentBench-DB,0.20,1004,33.47,
+main,SqueezeAttn+H2O,AgentBench-KG,0.20,1000,32.17,
+main,SqueezeAttn+H2O,AgentBench-KG,0.20,1001,32.0,
+main,SqueezeAttn+H2O,AgentBench-KG,0.20,1002,33.63,
+main,SqueezeAttn+H2O,AgentBench-KG,0.20,1003,33.29,
+main,SqueezeAttn+H2O,AgentBench-KG,0.20,1004,27.41,
+main,SqueezeAttn+H2O,AlfWorld,0.20,1000,49.65,
+main,SqueezeAttn+H2O,AlfWorld,0.20,1001,46.13,
+main,SqueezeAttn+H2O,AlfWorld,0.20,1002,51.37,
+main,SqueezeAttn+H2O,AlfWorld,0.20,1003,49.94,
+main,SqueezeAttn+H2O,AlfWorld,0.20,1004,47.41,
+main,Strong Heuristic,AgentBench-OS,0.20,1000,36.35,
+main,Strong Heuristic,AgentBench-OS,0.20,1001,35.17,
+main,Strong Heuristic,AgentBench-OS,0.20,1002,37.02,
+main,Strong Heuristic,AgentBench-OS,0.20,1003,34.86,
+main,Strong Heuristic,AgentBench-OS,0.20,1004,32.6,
+main,Strong Heuristic,AgentBench-DB,0.20,1000,44.61,
+main,Strong Heuristic,AgentBench-DB,0.20,1001,41.54,
+main,Strong Heuristic,AgentBench-DB,0.20,1002,40.23,
+main,Strong Heuristic,AgentBench-DB,0.20,1003,38.96,
+main,Strong Heuristic,AgentBench-DB,0.20,1004,41.16,
+main,Strong Heuristic,AgentBench-KG,0.20,1000,38.44,
+main,Strong Heuristic,AgentBench-KG,0.20,1001,40.15,
+main,Strong Heuristic,AgentBench-KG,0.20,1002,39.49,
+main,Strong Heuristic,AgentBench-KG,0.20,1003,39.35,
+main,Strong Heuristic,AgentBench-KG,0.20,1004,35.57,
+main,Strong Heuristic,AlfWorld,0.20,1000,55.09,
+main,Strong Heuristic,AlfWorld,0.20,1001,58.09,
+main,Strong Heuristic,AlfWorld,0.20,1002,57.94,
+main,Strong Heuristic,AlfWorld,0.20,1003,56.87,
+main,Strong Heuristic,AlfWorld,0.20,1004,59.01,
+main,AdaKV,AgentBench-OS,0.20,1000,29.12,
+main,AdaKV,AgentBench-OS,0.20,1001,30.59,
+main,AdaKV,AgentBench-OS,0.20,1002,34.67,
+main,AdaKV,AgentBench-OS,0.20,1003,28.11,
+main,AdaKV,AgentBench-OS,0.20,1004,30.51,
+main,AdaKV,AgentBench-DB,0.20,1000,40.7,
+main,AdaKV,AgentBench-DB,0.20,1001,44.87,
+main,AdaKV,AgentBench-DB,0.20,1002,40.66,
+main,AdaKV,AgentBench-DB,0.20,1003,40.85,
+main,AdaKV,AgentBench-DB,0.20,1004,41.42,
+main,AdaKV,AgentBench-KG,0.20,1000,36.97,
+main,AdaKV,AgentBench-KG,0.20,1001,34.64,
+main,AdaKV,AgentBench-KG,0.20,1002,37.18,
+main,AdaKV,AgentBench-KG,0.20,1003,34.7,
+main,AdaKV,AgentBench-KG,0.20,1004,40.51,
+main,AdaKV,AlfWorld,0.20,1000,54.09,
+main,AdaKV,AlfWorld,0.20,1001,53.3,
+main,AdaKV,AlfWorld,0.20,1002,55.35,
+main,AdaKV,AlfWorld,0.20,1003,53.55,
+main,AdaKV,AlfWorld,0.20,1004,50.21,
+main,Offline SMI Diagnostic,AgentBench-OS,0.20,1000,42.2,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-OS,0.20,1001,37.51,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-OS,0.20,1002,39.59,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-OS,0.20,1003,40.37,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-OS,0.20,1004,39.33,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-DB,0.20,1000,51.76,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-DB,0.20,1001,48.5,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-DB,0.20,1002,51.04,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-DB,0.20,1003,50.66,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-DB,0.20,1004,48.54,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-KG,0.20,1000,49.92,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-KG,0.20,1001,48.68,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-KG,0.20,1002,47.68,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-KG,0.20,1003,46.81,offline diagnostic reference
+main,Offline SMI Diagnostic,AgentBench-KG,0.20,1004,44.91,offline diagnostic reference
+main,Offline SMI Diagnostic,AlfWorld,0.20,1000,66.01,offline diagnostic reference
+main,Offline SMI Diagnostic,AlfWorld,0.20,1001,67.62,offline diagnostic reference
+main,Offline SMI Diagnostic,AlfWorld,0.20,1002,67.19,offline diagnostic reference
+main,Offline SMI Diagnostic,AlfWorld,0.20,1003,69.65,offline diagnostic reference
+main,Offline SMI Diagnostic,AlfWorld,0.20,1004,66.53,offline diagnostic reference
+main,TaskKV-Proxy,AgentBench-OS,0.20,1000,37.2,deployed method
+main,TaskKV-Proxy,AgentBench-OS,0.20,1001,38.57,deployed method
+main,TaskKV-Proxy,AgentBench-OS,0.20,1002,35.8,deployed method
+main,TaskKV-Proxy,AgentBench-OS,0.20,1003,37.52,deployed method
+main,TaskKV-Proxy,AgentBench-OS,0.20,1004,41.41,deployed method
+main,TaskKV-Proxy,AgentBench-DB,0.20,1000,47.63,deployed method
+main,TaskKV-Proxy,AgentBench-DB,0.20,1001,48.34,deployed method
+main,TaskKV-Proxy,AgentBench-DB,0.20,1002,49.13,deployed method
+main,TaskKV-Proxy,AgentBench-DB,0.20,1003,47.24,deployed method
+main,TaskKV-Proxy,AgentBench-DB,0.20,1004,44.16,deployed method
+main,TaskKV-Proxy,AgentBench-KG,0.20,1000,41.64,deployed method
+main,TaskKV-Proxy,AgentBench-KG,0.20,1001,46.66,deployed method
+main,TaskKV-Proxy,AgentBench-KG,0.20,1002,46.85,deployed method
+main,TaskKV-Proxy,AgentBench-KG,0.20,1003,46.76,deployed method
+main,TaskKV-Proxy,AgentBench-KG,0.20,1004,44.09,deployed method
+main,TaskKV-Proxy,AlfWorld,0.20,1000,63.54,deployed method
+main,TaskKV-Proxy,AlfWorld,0.20,1001,66.57,deployed method
+main,TaskKV-Proxy,AlfWorld,0.20,1002,64.84,deployed method
+main,TaskKV-Proxy,AlfWorld,0.20,1003,65.85,deployed method
+main,TaskKV-Proxy,AlfWorld,0.20,1004,62.7,deployed method
